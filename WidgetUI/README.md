@@ -49,7 +49,7 @@ The application will be available at: [http://localhost:4200](http://localhost:4
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5206/api/widgets'
+  apiUrl: 'http://localhost:5206/api/widgets'
 };
 ```
 - Restart the Angular app for changes to take effect.

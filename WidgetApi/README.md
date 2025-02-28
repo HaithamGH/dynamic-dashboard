@@ -8,7 +8,7 @@ This project is a .NET Core Web API using SQLite for widget data management. It 
 
 ### Prerequisites
 Ensure you have the following installed:
-- **.NET SDK** (9.0.101) - [Download](https://dotnet.microsoft.com/en-us/download/dotnet)
+- **.NET SDK** (v9.0.101) - [Download](https://dotnet.microsoft.com/en-us/download/dotnet)
 - **Git** (Optional, for cloning the repository) - [Download](https://git-scm.com/)
 
 ---
@@ -36,7 +36,7 @@ The API will be available at: `http://localhost:5206` (HTTP).
 ---
 
 ## 📖 API Documentation (Swagger)
-- Open [https://localhost:5206/swagger](https://localhost:5206/swagger) in your browser.
+- Open [http://localhost:5206/swagger](http://localhost:5206/swagger) in your browser.
 - View and test API endpoints interactively.
 
 ### API Endpoints
