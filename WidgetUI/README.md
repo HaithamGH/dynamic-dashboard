@@ -1,59 +1,68 @@
-# DynamicDashboard
+# Widget UI (Angular 19)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+This project is an Angular 19 application for visualizing widgets with lazy loading, state management, filtering, and virtual scrolling.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Getting Started
 
-```bash
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (v23.7.0) - [Download](https://nodejs.org/)
+- **Angular CLI** (v19.1.7)
+  ```sh
+  npm install -g @angular/cli
+  ```
+- **Git** (Optional, for cloning the repository) - [Download](https://git-scm.com/)
+
+---
+
+## 🎨 Widget UI (Angular 19)
+
+### 1️⃣ Clone the Repository
+```sh
+  git clone https://github.com/HaithamGH/dynamic-dashboard.git
+  cd WidgetUI
+```
+
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
+
+### 3️⃣ Run the Application
+```sh
 ng serve
 ```
+The application will be available at: [http://localhost:4200](http://localhost:4200)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 4️⃣ Features
+- Lazy loading & state management
+- Dynamic widget rendering (bar charts, pie charts, tables, histograms, line graphs)
+- Filtering & virtual scrolling for large datasets
+- Full responsiveness & performance optimizations
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## 🔗 Connecting to an API
+- Open `environment.ts` and update the API URL:
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'https://localhost:5206/api/widgets'
+};
 ```
+- Restart the Angular app for changes to take effect.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📌 Additional Notes
+- Ensure the backend API is running before starting the Angular App.
+- If using different ports, update `proxy.conf.json` to avoid CORS issues.
 
-## Building
+---
 
-To build the project run:
+## 🤝 Contributing
+Feel free to open a pull request if you want to contribute!
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---

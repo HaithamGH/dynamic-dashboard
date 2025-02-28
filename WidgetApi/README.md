@@ -1,141 +1,62 @@
-# Widget API - .NET Core Web API with SQLite
+# WidgetAPI (.NET Core Web API)
 
-## Overview
-The Widget API is a .NET Core Web API that provides CRUD operations for managing widgets. The API uses SQLite as the database and includes Swagger documentation for easy testing.
-
-## Features
-- CRUD operations for widgets
-- SQLite database integration
-- Data seeding with initial widget data
-- Swagger documentation for API testing
+This project is a .NET Core Web API using SQLite for widget data management. It provides endpoints for fetching, adding, updating, and deleting widget data.
 
 ---
 
-## Prerequisites
+## 🚀 Getting Started
+
+### Prerequisites
 Ensure you have the following installed:
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [SQLite](https://www.sqlite.org/download.html)
-- A tool like Postman or a browser to test API endpoints
+- **.NET SDK** (9.0.101) - [Download](https://dotnet.microsoft.com/en-us/download/dotnet)
+- **Git** (Optional, for cloning the repository) - [Download](https://git-scm.com/)
 
 ---
 
-## Installation and Setup
+## 🛠️ Setup and Run WidgetAPI
 
-### Step 1: Clone the Repository
+### 1️⃣ Clone the Repository
 ```sh
-git clone <repository_url>
-cd WidgetApi
+  git clone https://github.com/HaithamGH/dynamic-dashboard.git
+  cd WidgetApi
 ```
 
-### Step 2: Install Dependencies
+### 2️⃣ Setup the Database
 ```sh
-dotnet restore
+  dotnet ef migrations add InitialCreate
+  dotnet ef database update
 ```
 
-### Step 3: Apply Migrations and Seed Data
+### 3️⃣ Run the API
 ```sh
-dotnet ef database update
+  dotnet run
 ```
-
-### Step 4: Run the Application
-```sh
-dotnet run
-```
-
-The API will start at `https://localhost:5001/` (or `http://localhost:5000/`).
+The API will be available at: `http://localhost:5206` (HTTP).
 
 ---
 
-## Database Schema
-The API includes two models:
-- **Widget**: Represents different types of widgets (charts, tables, etc.).
-- **UserData**: Represents detailed data for table widgets.
+## 📖 API Documentation (Swagger)
+- Open [https://localhost:5206/swagger](https://localhost:5206/swagger) in your browser.
+- View and test API endpoints interactively.
 
-### Widget Model
-```csharp
-public class Widget
-{
-    public int Id { get; set; }
-    public string Type { get; set; }
-    public string Title { get; set; }
-    public List<int>? Data { get; set; }
-}
-```
-
-### UserData Model
-```csharp
-public class UserData
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Value { get; set; }
-    public string Description { get; set; }
-    public string Status { get; set; }
-}
-```
+### API Endpoints
+| Method  | Endpoint               | Description           |
+|---------|------------------------|-----------------------|
+| GET     | `/api/widgets`         | Get all widgets      |
+| GET     | `/api/widgets/{id}`    | Get widget by ID     |
+| POST    | `/api/widgets`         | Add a new widget     |
+| PUT     | `/api/widgets/{id}`    | Update a widget      |
+| DELETE  | `/api/widgets/{id}`    | Delete a widget      |
 
 ---
 
-## API Endpoints
-
-### Base URL
-```
-https://localhost:5001/api/widgets
-```
-
-### Get All Widgets
-**GET** `/api/widgets`
-- Response: List of all widgets.
-
-### Get Widget by ID
-**GET** `/api/widgets/{id}`
-- Response: Widget object.
-
-### Create a Widget
-**POST** `/api/widgets`
-- Request Body:
-```json
-{
-  "type": "bar-chart",
-  "title": "New Chart",
-  "data": [10, 20, 30]
-}
-```
-- Response: Created widget.
-
-### Update a Widget
-**PUT** `/api/widgets/{id}`
-- Request Body:
-```json
-{
-  "id": 1,
-  "type": "bar-chart",
-  "title": "Updated Chart",
-  "data": [15, 25, 35]
-}
-```
-- Response: No content (204).
-
-### Delete a Widget
-**DELETE** `/api/widgets/{id}`
-- Response: No content (204).
+## 📌 Additional Notes
+- Use `Postman` or `Swagger` to test API endpoints.
+- Ensure the database is properly migrated using `dotnet ef database update`.
 
 ---
 
-## Swagger Documentation
-Swagger UI is available at:
-```
-https://localhost:5001/swagger/index.html
-```
-Use it to explore and test the API interactively.
+## 🤝 Contributing
+Feel free to open a pull request if you want to contribute!
 
 ---
-
-## License
-This project is licensed under the MIT License.
-
----
-
-## Author
-Developed by [Your Name].
-

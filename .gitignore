@@ -1,0 +1,28 @@
+# Ignore .NET build files
+bin/
+obj/
+*.db
+*.db-shm
+*.db-wal
+
+# Ignore SQLite database files
+Migrations/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Ignore Angular build files
+.angular/
+node_modules/
+dist/
+
+# Ignore environment files
+.env
+*.log
+
+# Ignore IDE settings
+.vscode/
+.idea/
+*.suo
+*.user
+*.cache
