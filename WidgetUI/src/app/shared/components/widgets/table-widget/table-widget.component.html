@@ -1,0 +1,20 @@
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data">
+                <td>{{ row?.name || '-' }}</td>
+                <td>{{ row?.value || '-' }}</td>
+                <td>{{ row?.description || '-' }}</td>
+                <td>{{ row?.status || '-' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

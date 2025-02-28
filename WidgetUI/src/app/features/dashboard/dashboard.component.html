@@ -1,0 +1,17 @@
+<div class="m-2">
+    <h2>Dynamic Dashboard</h2>
+    <div class="buttons-container">
+        <button class="btn btn-primary" *ngFor="let widget of originalWidgets" (click)="addWidget(widget)">
+            Add {{ widget.type }}
+        </button>
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="50" class="scroll-container">
+        <div cdkDropList (cdkDropListDropped)="drop($event)">
+            <div id="{{i}}" *cdkVirtualFor="let widget of widgets;let i = index" class="widget" cdkDrag>
+                <app-widget class="widget-item" [widget]="widget"></app-widget>
+                <i class="bi bi-grip-vertical fs-1 drag-icon"></i>
+                <button class="btn btn-danger" (click)="onRemoveWidget(widget)">X</button>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

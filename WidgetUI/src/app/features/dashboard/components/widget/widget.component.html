@@ -1,0 +1,13 @@
+<div *ngIf="widget" class="widget">
+    <h3>{{ widget.type }}</h3>
+    <div [ngSwitch]="widget.type">
+        <bar-chart-widget *ngSwitchCase="'bar-chart'" [data]="widget.data" [xAxisLabel]="'Category'" [yAxisLabel]="'Value'" [view]="chartView">
+        </bar-chart-widget>
+        <histogram-widget *ngSwitchCase="'histogram'" [data]="widget.data" [xAxisLabel]="'Range'" [yAxisLabel]="'Frequency'" [view]="chartView">
+        </histogram-widget>
+        <line-graph-widget *ngSwitchCase="'line-graph'" [data]="widget.data" [view]="chartView"></line-graph-widget>
+        <pie-chart-widget *ngSwitchCase="'pie-chart'" [data]="widget.data" [view]="chartView"></pie-chart-widget>
+        <table-widget *ngSwitchCase="'table'" [data]="widget.data"></table-widget>
+        <p *ngSwitchDefault>Unknown Widget</p>
+    </div>
+</div>

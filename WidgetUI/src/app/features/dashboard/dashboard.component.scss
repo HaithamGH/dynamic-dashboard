@@ -1,0 +1,42 @@
+.scroll-container {
+    height: calc(100vh - 200px);
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f4f4f4;
+    margin-bottom: 5px;
+
+    .drag-icon {
+        cursor: move;
+    }
+}
+
+.widget-item {
+    width: 70%;
+}
+
+.buttons-container {
+    display: block;
+    width: 100%;
+
+    &>button {
+        margin: 10px 5px 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .widget {
+        flex-direction: column;
+    }
+
+    .widget-item {
+        width: 100%;
+    }
+}
