@@ -2,7 +2,7 @@
     <h2>Dynamic Dashboard</h2>
     <div class="buttons-container">
         <button class="btn btn-primary" *ngFor="let widget of originalWidgets" (click)="addWidget(widget)">
-            Add {{ widget.type }}
+            Add {{ widget.title }}
         </button>
     </div>
     <cdk-virtual-scroll-viewport itemSize="50" class="scroll-container">

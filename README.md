@@ -74,9 +74,8 @@ ng serve
 The application will be available at: [http://localhost:4200](http://localhost:4200)
 
 ### 4️⃣ Features
-- Lazy loading & state management
+- Drag/Drop features & state management
 - Dynamic widget rendering (bar charts, pie charts, tables, histograms, line graphs)
-- Filtering & virtual scrolling for large datasets
 - Full responsiveness & performance optimizations
 
 ---
