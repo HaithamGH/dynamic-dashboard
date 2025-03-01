@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IWidgetDto } from '../../../../core/models/widget.model';
 
@@ -6,6 +6,7 @@ import { IWidgetDto } from '../../../../core/models/widget.model';
   selector: 'table-widget',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './table-widget.component.html',
   styleUrl: './table-widget.component.scss'
 })

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostListener } from '@angular/core';
+import { Component, Input, OnInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
@@ -7,6 +7,7 @@ import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
   selector: 'line-graph-widget',
   standalone: true,
   imports: [CommonModule, NgxChartsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './line-graph-widget.component.html',
   styleUrl: './line-graph-widget.component.scss'
 })

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
@@ -7,6 +7,7 @@ import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
   selector: 'bar-chart-widget',
   standalone: true,
   imports: [CommonModule, NgxChartsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './bar-chart-widget.component.html',
   styleUrl: './bar-chart-widget.component.scss'
 })

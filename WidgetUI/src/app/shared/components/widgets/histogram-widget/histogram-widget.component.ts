@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
@@ -6,6 +6,7 @@ import { IChartDto, IWidgetDto } from '../../../../core/models/widget.model';
 @Component({
   selector: 'histogram-widget',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, NgxChartsModule],
   templateUrl: './histogram-widget.component.html',
   styleUrl: './histogram-widget.component.scss'

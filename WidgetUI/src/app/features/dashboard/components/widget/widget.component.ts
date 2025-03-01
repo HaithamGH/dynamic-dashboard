@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IDashboardWidget } from '../../../../core/models/dashboard.model';
 import { HistogramWidgetComponent } from "../../../../shared/components/widgets/histogram-widget/histogram-widget.component";
@@ -17,6 +17,8 @@ import { TableWidgetComponent } from "../../../../shared/components/widgets/tabl
     PieChartWidgetComponent,
     TableWidgetComponent
   ],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './widget.component.html',
   styleUrl: './widget.component.scss'
 })

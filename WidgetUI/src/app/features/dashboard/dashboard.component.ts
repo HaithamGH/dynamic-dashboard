@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
 import { CdkDropList, CdkDrag, CdkDragDrop } from '@angular/cdk/drag-drop';
@@ -15,7 +15,7 @@ import { ToastrService } from '../../core/services/toastr.service';
   selector: 'app-dashboard',
   imports: [CommonModule, CdkDropList, CdkDrag, CdkVirtualScrollViewport, ScrollingModule, WidgetComponent],
   standalone: true,
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   widgets: IDashboardWidget[] = [];
   subscription = new Subscription()
 
-  constructor(private _store: Store, private _toastrService: ToastrService) {
+  constructor(private _store: Store, private _toastrService: ToastrService, private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .subscribe((widgets) => {
         this.originalWidgets = [...widgets];
         this.filterAvailableWidgets();
+        this.cdr.markForCheck();
       }));
     this._store.dispatch(new GetWidgets());
   }
@@ -61,6 +62,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   addWidget(widget: IDashboardWidget) {
     this.originalWidgets = this.originalWidgets.filter(i => i.id != widget.id);
     this._store.dispatch(new AddWidget(widget));
+    this.cdr.markForCheck();
   }
 
   onRemoveWidget(widget: IDashboardWidget) {
@@ -70,10 +72,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   removeWidget(widget: IDashboardWidget) {
     this._store.dispatch(new RemoveWidget(widget.id));
     widget && (this.originalWidgets = [...this.originalWidgets, widget]);
+    this.cdr.markForCheck();
   }
 
   drop(event: CdkDragDrop<IDashboardWidget[]>) {
     this._store.dispatch(new ReorderWidgets(event.previousIndex, event.currentIndex));
+    this.cdr.markForCheck();
   }
 
   ngOnDestroy(): void {
